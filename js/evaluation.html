@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <header>
+    <link
+      rel="stylesheet"
+      href="https://assets.belloai.com/bello-first-interview/sdk.css"
+    />
+    <script
+      type="module"
+      src="https://assets.belloai.com/bello-first-interview/sdk.js"
+    ></script>
+  </header>
+  <body>
+    <div style="height: 100vh; overflow: auto">
+      <first-interview component-name="InterviewEvaluation" />
+    </div>
+    <script>
+      // 初始化定制标签
+      window.XInterviewClient?.init(
+        () => {
+          // Token
+          return "";
+        },
+        {
+          thirdPartyEvaluationId: "", // 评价ID，生成面试的时候就创建好
+
+          // 配置参数
+          thirdPartyPlatform: "wingman", // 第三方平台标识，用于token解析
+          apiUrl: "", // API接口地址
+          websocketUrl: "", // WebSocket地址
+        }
+      );
+    </script>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <header>
+    <link
+      rel="stylesheet"
+      href="https://assets.belloai.com/bello-first-interview/sdk.css"
+    />
+    <script
+      type="module"
+      src="https://assets.belloai.com/bello-first-interview/sdk.js"
+    ></script>
+  </header>
+  <body>
+    <div style="height: 100vh; overflow: auto">
+      <first-interview component-name="InterviewPlan" />
+    </div>
+    <script>
+      // 初始化定制标签
+      window.XInterviewClient?.init(
+        () => {
+          // Token
+          return "";
+        },
+        {
+          id: "", // 面试方案ID, 修改面试方案的时候需要传入
+          interviewRoundOptions: [
+            {
+              label: "专业面试-初试",
+              value: "M1",
+            },
+            {
+              label: "专业面试-复试",
+              value: "M2",
+            },
+            {
+              label: "HR面试",
+              value: "M3",
+            },
+          ],
+          successRedirectUrl: "", // 成功后跳转的链接
+          jobId: "M1850731220067377154",
+          jobDesc:
+            "岗位职责\n与设计师紧密合作，确保 UI 设计的美感和一致性，提升用户界面的视觉吸引力和用户体验\n任职要求\n1. 本科及以上在读学生，计算机、软件工程等相关专业\n2. 有 Web 前端开发项目或相同级别大赛参赛经验\n3. 本岗位需求实习时间需三个月以上，请酌情考虑。\n4. 熟练掌握 vue 框架以及相关生态技术，具备实际开发经验\n5. 熟练掌握 JS/TS，CSS，HTML，动画、协议、安全、网络、性能优化等前端技术\n6. 对 UI 设计有敏锐的审美能力，能够与设计师紧密合作，确保界面设计的高质量还原\n7. 对技术保持好奇，有良好的沟通能力和团队合作精神、优秀的分析问题和解决问题的能力\n加分项\n1. 对用户体验设计（UX）有深入理解，能够从用户角度出发进行界面优化\n2. 有自己的开源作品或技术博客\n岗位优势\n1. 此岗位有转正机会，如表现优秀，我们会邀请签订正式合同\n2. 具有竞争力的薪酬，明确的评级标准(思维巡航内部极度扁平，技术影响力决定一切)和晋级体系，超大的年底奖金包",
+          jobTitle: "前端实习生",
+
+          // 配置参数
+          thirdPartyPlatform: "wingman", // 第三方平台标识，用于token解析
+          apiUrl: "", // API接口地址
+          websocketUrl: "", // WebSocket地址
+        }
+      );
+    </script>
+  </body>
+</html>

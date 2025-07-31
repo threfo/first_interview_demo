@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <header>
+    <link
+      rel="stylesheet"
+      href="https://assets.belloai.com/bello-first-interview/sdk.css"
+    />
+    <script
+      type="module"
+      src="https://assets.belloai.com/bello-first-interview/sdk.js"
+    ></script>
+  </header>
+  <body>
+    <div style="height: 100vh; overflow: auto">
+      <first-interview component-name="TencentRoom" />
+    </div>
+    <script>
+      // 需要单独开通腾讯云房间服务
+
+      // 初始化定制标签
+      window.XInterviewClient?.init(
+        () => {
+          // Token
+          return "";
+        },
+        {
+          code: "", // 生成的面试房间code
+
+          // 配置参数
+          thirdPartyPlatform: "wingman", // 第三方平台标识，用于token解析
+          apiUrl: "", // API接口地址
+          websocketUrl: "", // WebSocket地址
+        }
+      );
+    </script>
+  </body>
+</html>
