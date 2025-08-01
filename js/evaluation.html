@@ -15,21 +15,29 @@
       <first-interview component-name="InterviewEvaluation" />
     </div>
     <script>
-      // 初始化定制标签
-      window.XInterviewClient?.init(
-        () => {
-          // Token
-          return "";
-        },
-        {
-          thirdPartyEvaluationId: "", // 评价ID，生成面试的时候就创建好
+      const init = () => {
+        if (window.XInterviewClient) {
+          // 初始化定制标签
+          window.XInterviewClient?.init(
+            () => {
+              // Token
+              return "";
+            },
+            {
+              thirdPartyEvaluationId: "", // 评价ID，生成面试的时候就创建好
 
-          // 配置参数
-          thirdPartyPlatform: "wingman", // 第三方平台标识，用于token解析
-          apiUrl: "", // API接口地址
-          websocketUrl: "", // WebSocket地址
+              // 配置参数
+              thirdPartyPlatform: "wingman", // 第三方平台标识，用于token解析
+              apiUrl: "", // API接口地址
+              websocketUrl: "", // WebSocket地址
+            }
+          );
+        } else {
+          setTimeout(init, 1000); // 如果 XInterviewClient 未加载，1秒后重试
         }
-      );
+      };
+
+      init();
     </script>
   </body>
 </html>

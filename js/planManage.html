@@ -15,22 +15,30 @@
       <first-interview component-name="InterviewPlanManage" />
     </div>
     <script>
-      // 初始化定制标签
-      window.XInterviewClient?.init(
-        () => {
-          // Token
-          return "";
-        },
-        {
-          createUrl: "", // 创建面试方案的链接
-          editUrl: "", // 编辑面试方案的链接
+      const init = () => {
+        if (window.XInterviewClient) {
+          // 初始化定制标签
+          window.XInterviewClient?.init(
+            () => {
+              // Token
+              return "";
+            },
+            {
+              createUrl: "", // 创建面试方案的链接
+              editUrl: "", // 编辑面试方案的链接
 
-          // 配置参数
-          thirdPartyPlatform: "wingman", // 第三方平台标识，用于token解析
-          apiUrl: "", // API接口地址
-          websocketUrl: "", // WebSocket地址
+              // 配置参数
+              thirdPartyPlatform: "wingman", // 第三方平台标识，用于token解析
+              apiUrl: "", // API接口地址
+              websocketUrl: "", // WebSocket地址
+            }
+          );
+        } else {
+          setTimeout(init, 1000); // 如果 XInterviewClient 未加载，1秒后重试
         }
-      );
+      };
+
+      init();
     </script>
   </body>
 </html>

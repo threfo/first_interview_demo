@@ -16,22 +16,29 @@
     </div>
     <script>
       // 需要单独开通腾讯云房间服务
+      const init = () => {
+        if (window.XInterviewClient) {
+          // 初始化定制标签
+          window.XInterviewClient?.init(
+            () => {
+              // Token
+              return "";
+            },
+            {
+              code: "", // 生成的面试房间code
 
-      // 初始化定制标签
-      window.XInterviewClient?.init(
-        () => {
-          // Token
-          return "";
-        },
-        {
-          code: "", // 生成的面试房间code
-
-          // 配置参数
-          thirdPartyPlatform: "wingman", // 第三方平台标识，用于token解析
-          apiUrl: "", // API接口地址
-          websocketUrl: "", // WebSocket地址
+              // 配置参数
+              thirdPartyPlatform: "wingman", // 第三方平台标识，用于token解析
+              apiUrl: "", // API接口地址
+              websocketUrl: "", // WebSocket地址
+            }
+          );
+        } else {
+          setTimeout(init, 1000); // 如果 XInterviewClient 未加载，1秒后重试
         }
-      );
+      };
+
+      init();
     </script>
   </body>
 </html>
